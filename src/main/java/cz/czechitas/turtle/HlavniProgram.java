@@ -20,6 +20,12 @@ public class HlavniProgram {
 
         zofka.setLocation(650, 100);
         drawCircle(10, Color.YELLOW);
+
+        drawIceCream(10, 100, Color.RED);
+
+        drawSnowman(6, 10, 3, 3, 15, Color.BLUE);
+
+        drawTrain(250, 150, 140, 250, 13, 6, 6, 100, Color.darkGray);
     }
 
     public void drawTriangle(double sideLength, Color barva) {
@@ -31,7 +37,6 @@ public class HlavniProgram {
         }
         zofka.turnRight(120);
     }
-
     public void drawSquare(double sideLength, Color barva) {
         zofka.setPenColor(barva);
         for (int i = 0; i < 4; i++) {
@@ -39,7 +44,6 @@ public class HlavniProgram {
             zofka.turnLeft(90);
         }
     }
-
     public void drawRectangle(double sideLengthA, double sideLengthB, Color barva) {
         zofka.setPenColor(barva);
         for (int i = 0; i < 2; i++) {
@@ -49,13 +53,58 @@ public class HlavniProgram {
             zofka.turnLeft(90);
         }
     }
-
     public void drawCircle(double moveLength, Color barva) {
         zofka.setPenColor(barva);
         for (int i = 0; i < 36; i++) {
             zofka.move(moveLength);
             zofka.turnLeft(10);
         }
+    }
+    public void drawIceCream(double moveLength, double sideLengthA, Color barva) {
+        zofka.setLocation(200.0,350.0);
+        drawCircle(moveLength, barva);
+        zofka.setLocation(190.0,370.0);
+        zofka.turnLeft(60);
+        drawTriangle(sideLengthA, barva);
+        zofka.turnLeft(30);
+    }
+    public void drawSnowman(double circle1, double circle2, double circle3, double circle4, double circle5, Color barva) {
+        zofka.setLocation(500.0,300.0);
+        drawCircle(circle1, barva);
+        zofka.setLocation(525.0,400.0);
+        drawCircle(circle2, barva);
+        zofka.setLocation(560.0,400.0);
+        drawCircle(circle3, barva);
+        zofka.setLocation(410.0,400.0);
+        drawCircle(circle4, barva);
+        zofka.setLocation(550.0,550.0);
+        drawCircle(circle5, barva);
+    }
+
+    public void drawIsoscelesTriangle(double sideLength, Color barva) {
+        var hypotenuse = Math.sqrt(2*Math.pow(sideLength, 2));
+        zofka.turnLeft(45);
+        zofka.move(sideLength);
+        zofka.turnLeft(90);
+        zofka.move(sideLength);
+        zofka.turnLeft(135);
+        zofka.move(hypotenuse);
+    }
+
+    public void drawTrain(double sideLengthA1, double sideLengthB1, double sideLengthA2, double sideLengthB2, double circle1, double circle2, double circle3, double sideLength, Color barva ) {
+        zofka.setLocation(1400.0,500.0);
+        drawRectangle(sideLengthA1, sideLengthB1, barva);
+        zofka.setLocation(1250.0,500.0);
+        drawRectangle(sideLengthA2, sideLengthB2, barva);
+        zofka.setLocation(1400.0,500.0);
+        drawCircle(circle1, barva);
+        zofka.setLocation(1200.0,540.0);
+        drawCircle(circle2, barva);
+        zofka.setLocation(1100.0,540.0);
+        drawCircle(circle3, barva);
+        zofka.setLocation(900.0,540.0);
+        zofka.turnRight(135);
+        drawIsoscelesTriangle(sideLength, barva);
     }
 
     public static void main(String[] args) {
